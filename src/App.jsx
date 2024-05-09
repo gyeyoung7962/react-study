@@ -1,35 +1,33 @@
 function App() {
-  const v1 = 5;
-  const v2 = 7;
+  const a = 7;
+  const b = 3;
 
-  function someAction() {
-    //일반함수
-    return "흥민";
-  }
-  function someAction2(p) {
-    return p * p;
-  }
-  return (
-    <>
-      <p>
-        {2}+{3} = {2 + 3}
-      </p>
-      <p>
-        {v1} + {v2} = {v1 + v2}
-      </p>
-      <p>
-        {v1} - {v2} = {v1 - v2}
-      </p>
+  // &&:양변이 모두 true일때만 결과가 truem 나머지는 false
 
-      <p>
-        {v1} * {v2} = {v1 * v2}
-      </p>
-      <p>{someAction()}</p>
-      <p>{someAction2(5)}</p>
-      <p>{v1 < 10 ? "작다" : "크다"}</p>
-      <p>{v1 > 3 ? "크다" : "작다"}</p>
-    </>
-  );
+  const c = a > 10 && b > 0;
+  const d = a < 10 && b < 0;
+  console.log("c", c);
+  console.log("d", d);
+  // ||:양변이 모두 false일때만 결과가 false, 나머지는 true
+  const e = a > 10 || b > 0;
+  const f = a < 10 || b > 10;
+  console.log("e", e);
+  console.log("f", f);
+
+  // &&(and 그러면) : 왼쪽항이 true면 오른쪽값
+  const g = a < 10 && "hello"; //true
+  const h = a < 5 && "hi"; //false
+  console.log("g", g);
+  console.log("h", h);
+
+  // ||(or 아니면) : 왼쪽항이 false면 오른쪽 값
+
+  const i = a < 10 || "greeting"; //true
+  const j = a < 5 || "안녕"; //false
+  console.log("i", i);
+  console.log("j", j);
+
+  return <></>;
 }
 
 export default App;
