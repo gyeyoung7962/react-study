@@ -1,28 +1,16 @@
-function App() {
-  //javascript data type
-  let a; //값이 없으면 undefined
-  console.log("a", typeof a);
+import React from "react";
 
-  let b = "문자열타입"; //string
-  console.log("b", typeof b);
+function App(props) {
+  //object:{}
+  //{}안에 property명: property값 쌍들이 작성됨
+  let a = {};
+  let b = { name: "흥민" };
+  let c = { address: "신촌", city: "서울", country: "한국" };
 
-  let c = 3; //number
-  console.log("c", typeof c);
-
-  let d = 3.14; //number
-  console.log("d", typeof d);
-
-  let e = true;
-  console.log("e", typeof e);
-
-  let f = {}; //object
-  console.log("f", typeof f);
-
-  let g = function () {
-    console.log("g", typeof g);
-  };
-
-  return null;
+  console.log("a", a);
+  console.log("b", b);
+  console.log("c", c);
+  return <div></div>;
 }
 
 export default App;
