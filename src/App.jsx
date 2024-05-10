@@ -28,6 +28,20 @@ function App(props) {
 
   console.log("b", b);
 
+  //연습 : 객체복사
+  const d = ["pizza", "son", 77];
+  //코드 작성
+  //1.참조값 복사, 객체 e
+  const e = d;
+  //2.각 원소를 복사해서 새 배열 만들기, 객체f
+  const [...f] = d;
+
+  e[2] = 88;
+
+  console.log("d", d); //pizza son 88
+  console.log("e", e); //pizza son 88
+  console.log("f", f); //pizza son 77
+
   return <div></div>;
 }
 
