@@ -29,6 +29,28 @@ function App(props) {
   console.log("a.address.city", a.address.city);
   console.log("c.address.city", c.address.city);
 
+  const d = {
+    company: {
+      name: "apple",
+      location: "us",
+    },
+    name: "iphone",
+    price: 300,
+  };
+
+  //코드작성 : d객체를 e객체로 깊은복사
+  const { ...e } = d;
+  const { ...company1 } = d.company;
+  e.company = company1;
+
+  e.name = "galaxy";
+  e.company.name = "samsung";
+
+  console.log("d.name", d.name);
+  console.log("d.company.name", d.company.name);
+  console.log("e.name", e.name);
+  console.log("e.company.name", e.company.name);
+
   return <div></div>;
 }
 
