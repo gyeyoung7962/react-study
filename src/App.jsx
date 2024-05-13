@@ -5,9 +5,9 @@ function App(props) {
   const [list, setList] = useState([]);
 
   function handleClick() {
-    const [...nextList] = list;
-    nextList.push(text);
-    setList(nextList);
+    const [...nextList] = list; //새로운 객체에 값 복사
+    nextList.push(text); //새로운 객체에 입력한 값을 넣고
+    setList(nextList); // list에 그 객체를 셋하기
     setText("");
   }
 
