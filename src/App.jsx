@@ -27,12 +27,35 @@ function MyComp() {
     };
   }, []);
 
+  //두번째 파라미터(배열)의 원소
+  //어떤 값(주로 state, dependency)이 바뀔 때
+
+  const [text1, setText1] = useState("");
+  const [text2, setText2] = useState("");
+  useEffect(() => {
+    console.log("dependency text1가 바뀔 때");
+  }, [text1]);
+
+  useEffect(() => {
+    console.log("dependency text2가 바뀔 때");
+  }, [text2]);
+
+  useEffect(() => {
+    console.log("text1 또는 text2가 바뀔 때");
+  }, [text1, text2]);
+
   const [count, setCount] = useState(0);
 
   return (
     <div>
       hello
       <button onClick={() => setCount(count + 1)}>click</button>
+      <div>
+        <input type="text" onChange={(e) => setText1(e.target.value)} />
+      </div>
+      <div>
+        <input type="text" onChange={(e) => setText2(e.target.value)} />
+      </div>
     </div>
   );
 }
