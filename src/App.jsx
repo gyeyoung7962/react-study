@@ -17,6 +17,9 @@ function MyContainer() {
   return <MySection />;
 }
 
+//#context 과용하지 말것
+//1.prop전달 부터 시작할것
+//2.주로 theme, 현재 계정정보, routing 등에 사용됨
 function App(props) {
   const [message, setMessage] = useState("");
   return (
