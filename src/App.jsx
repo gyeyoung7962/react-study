@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { ChakraProvider } from "@chakra-ui/react";
 
-function MyComp() {
+function MyComp({ color }) {
   const [count, setCount] = useState(0);
   return (
-    <div>
+    <div style={{ border: `5px solid ${color}` }}>
       <div>{count}</div>
       <div>
         <button onClick={() => setCount(count + 1)}>up</button>
@@ -13,12 +14,27 @@ function MyComp() {
 }
 
 function App(props) {
+  const [view1, setView1] = useState(true);
+  const [view2, setView2] = useState(true);
   return (
-    <div>
-      <MyComp />
-      <hr />
-      <MyComp />
-    </div>
+    <ChakraProvider>
+      <div>
+        <input
+          type={"checkbox"}
+          checked={view1}
+          onClick={(e) => setView1(e.target.checked)}
+        />
+        {view1 && <MyComp color={`blue`} />}
+
+        <hr />
+        <input
+          type={"checkbox"}
+          checked={view2}
+          onClick={(e) => setView2(e.target.checked)}
+        />
+        {view2 && <MyComp color={"red"} />}
+      </div>
+    </ChakraProvider>
   );
 }
 
