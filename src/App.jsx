@@ -17,6 +17,10 @@ function App(props) {
     axios.get("/api/main43/sub3").then((resp) => console.log(resp));
   }
 
+  function handleClick4() {
+    axios.get("/api/main43/sub4").then((resp) => console.log(resp.data));
+  }
+
   return (
     <div>
       <button onClick={handleClick1}>응답 받기</button>
@@ -25,6 +29,8 @@ function App(props) {
       <br />
       <p>{result}</p>
       <button onClick={handleClick3}>응답 받기3</button>
+      <br />
+      <button onClick={handleClick4}>응답 받기4</button>
     </div>
   );
 }
