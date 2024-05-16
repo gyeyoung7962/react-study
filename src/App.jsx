@@ -75,11 +75,11 @@ function App(props) {
     const r = Math.random();
     let path = "";
     if (r < 1 / 3) {
-      path = "/api/main43/sub1";
+      path = "/api/main44/sub1";
     } else if (r < 2 / 3) {
-      path = "/api/main43/sub3";
+      path = "/api/main44/sub3";
     } else {
-      path = "/api/main43/sub4";
+      path = "/api/main44/sub4";
     }
     axios
       .get(path)
@@ -97,7 +97,13 @@ function App(props) {
             console.log("403 응답 입니다. 권한이 없습니다.");
             break;
         }
-      });
+      })
+      .finally(() =>
+        //finally : 응답 코드가 200이든 아니든 항상 실행됨
+        {
+          console.log("항상 실행되는 메소드");
+        },
+      );
   }
 
   return (
@@ -110,7 +116,7 @@ function App(props) {
       <button onClick={handleMove401}>응답 코드에 따라 다른 일하기401</button>
       <button onClick={handleMove403}>응답 코드에 따라 다른 일하기403</button>
 
-      <button onClick={handle999}>응답 코드에 따라 다른 일하기403</button>
+      <button onClick={handle999}>응답 코드에 따라 다른 일하기ㅁㅁ</button>
     </div>
   );
 }
