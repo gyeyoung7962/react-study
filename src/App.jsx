@@ -60,6 +60,16 @@ function App(props) {
       .then((res) => alert(res.data));
   }
 
+  function handleAccessREO() {
+    axios
+      .get("/api/main45/reo", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => alert(res.data));
+  }
+
   return (
     <div>
       <div>
@@ -91,6 +101,8 @@ function App(props) {
       <button onClick={handleAccessManager}>매니저 경로</button>
       <hr />
       <button onClick={handleAccessManagerorAdmin}>매니저/어드민 경로</button>
+      <hr />
+      <button onClick={handleAccessREO}>reo</button>
     </div>
   );
 }
