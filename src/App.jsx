@@ -19,6 +19,10 @@ function Springroot() {
       >
         {/*a태그 대신 Link 컴포넌트 사용*/}
         <div>
+          <Link to="/spring">spring</Link>
+        </div>
+
+        <div>
           <Link to="/spring/learn">learn</Link>
         </div>
         <div>
@@ -41,6 +45,7 @@ const router = createBrowserRouter([
     path: "spring",
     element: <Springroot />,
     children: [
+      { index: true, element: <div>spring main page</div> },
       {
         path: "api",
         element: <div>api page</div>,
