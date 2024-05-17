@@ -1,15 +1,28 @@
 import React from "react";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
+function Springroot() {
+  return (
+    <div>
+      <div
+        style={{
+          padding: "10px",
+          backgroundColor: "blueviolet",
+        }}
+      >
+        상단 navbar
+      </div>
+      <div>
+        <Outlet />
+      </div>
+    </div>
+  );
+}
+
 const router = createBrowserRouter([
   {
     path: "spring",
-    element: (
-      <div>
-        spring root page
-        <Outlet />
-      </div>
-    ),
+    element: <Springroot />,
     children: [
       {
         path: "api",
