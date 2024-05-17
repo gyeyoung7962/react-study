@@ -1,5 +1,5 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { BoardAdd } from "./BoardAdd.jsx";
 
 function BoardEdit() {
@@ -18,8 +18,15 @@ const router = createBrowserRouter([
   },
   { path: "/edit", element: <BoardEdit /> },
   { path: "/list", element: <BoardList /> },
-  { path: "/board/write", element: <div>게시물 작성하기</div> },
-  { path: "/board/edit", element: <div>게시물 수정하기</div> },
+
+  {
+    path: "/board",
+    element: <Outlet />,
+    children: [
+      { path: "write", element: <div>게시물 작성하기</div> },
+      { path: "edit", element: <div>게시물 수정하기</div> },
+    ],
+  },
 ]);
 
 function App(props) {
