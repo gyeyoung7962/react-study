@@ -3,15 +3,20 @@ import axios from "axios";
 
 function App(props) {
   const [name, setName] = useState("");
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    axios.postForm("/api/main46/sub1", {
+    axios.postForm("/api/main46/sub2", {
       name: name,
       file: file,
     });
+  }
+
+  const fileNames = [];
+  for (let i = 0; i < file.length; i++) {
+    fileNames.push(<li>{file.item(i).name}</li>);
   }
 
   return (
@@ -27,11 +32,15 @@ function App(props) {
         <input
           type={"file"}
           name={"file"}
-          onChange={(e) => setFile(e.target.files[0])}
+          onChange={(e) => setFile(e.target.files)}
+          multiple={true}
         />
         <br />
         <input type={"submit"} />
       </form>
+      <div>
+        <ul>{fileNames}</ul>
+      </div>
     </div>
   );
 }
